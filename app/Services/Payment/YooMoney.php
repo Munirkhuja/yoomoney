@@ -6,16 +6,20 @@ namespace App\Services\Payment;
 
 use App\Models\Payment\YooMoneyChangeStatus;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 
 class YooMoney
 {
     public static function makePayment($amount, $currency, $user_id)
     {
+        $amount = ((int)($amount * 100)) / 100;
         $client = new \YooKassa\Client();
         $client->setAuth(config('yoo-money.app_id'), config('yoo-money.app_key'));
+        $yoo_money = new \App\Models\Payment\YooMoney();
+        $yoo_money->user_id = $user_id;
+        $yoo_money->amount = $amount;
+        $yoo_money->currency = $currency;
+        $yoo_money->save();
         try {
-            $uniq_id = (string) Str::uuid();
             $payment = $client->createPayment(
                 array(
                     'amount' => array(
@@ -24,14 +28,14 @@ class YooMoney
                     ),
                     'confirmation' => array(
                         'type' => 'redirect',
-                        'return_url' => route('payment.redirect', ['uniq_id' => $uniq_id]),
+                        'return_url' => route('payment.redirect', ['id' => $yoo_money->id]),
                     ),
                     'capture' => true,
                     'description' => 'Заказ №1',
                 ),
-                $uniq_id
+                uniqid('', true)
             );
-            self::store_create_payment($payment->jsonSerialize(), $user_id);
+            self::store_create_payment($payment->jsonSerialize(), $yoo_money);
             return $payment->getConfirmation()->getConfirmationUrl();
         } catch (\Exception $e) {
             Log::build([
@@ -42,23 +46,19 @@ class YooMoney
         }
     }
 
-    private static function store_create_payment($payment_responce, $user_id)
+    private static function store_create_payment($payment_responce, $yoo_money)
     {
-        \App\Models\Payment\YooMoney::create([
-            'yoo_money_id' => $payment_responce['id'],
-            'user_id' => $user_id,
-            'amount' => $payment_responce['amount']['value'],
-            'currency' => $payment_responce['amount']['currency'],
-            'description' => $payment_responce['description'] ?? "",
-            'metadata' => $payment_responce['metadata'] ?? "",
-            'paid' => $payment_responce['paid'],
-            'status' => $payment_responce['status'],
-            'recipient_account_id' => $payment_responce['recipient']['account_id'],
-            'recipient_gateway_id' => $payment_responce['recipient']['gateway_id'],
-            'refundable' => $payment_responce['refundable'],
-            'test' => $payment_responce['test'],
-            'yoo_created_at' => $payment_responce['created_at'],
-        ]);
+        $yoo_money->yoo_money_id = $payment_responce['id'];
+        $yoo_money->description = $payment_responce['description'] ?? "";
+        $yoo_money->metadata = $payment_responce['metadata'] ?? "";
+        $yoo_money->paid = $payment_responce['paid'];
+        $yoo_money->status = $payment_responce['status'];
+        $yoo_money->recipient_account_id = $payment_responce['recipient']['account_id'];
+        $yoo_money->recipient_gateway_id = $payment_responce['recipient']['gateway_id'];
+        $yoo_money->refundable = $payment_responce['refundable'];
+        $yoo_money->test = $payment_responce['test'];
+        $yoo_money->yoo_created_at = $payment_responce['created_at'];
+        $yoo_money->save();
     }
 
     public static function change_webhook($request)
@@ -80,17 +80,14 @@ class YooMoney
         }
     }
 
-    public static function check_payment($uniq_id)
+    public static function check_payment($id)
     {
+        $yoo_money = \App\Models\Payment\YooMoney::select('yoo_money_id')
+            ->finOrFail($id);
         $paid = YooMoneyChangeStatus::select('paid')
-            ->where('yoo_money_id', $uniq_id)
+            ->where('yoo_money_id', $yoo_money->yoo_money_id)
             ->where('paid', true)
             ->first();
-        if (!$paid) {
-            $paid = \App\Models\Payment\YooMoney::select('paid')
-                ->where('yoo_money_id', $uniq_id)
-                ->firstOrFail();
-        }
         return $paid->paid;
     }
 }
