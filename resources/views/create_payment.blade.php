@@ -390,6 +390,8 @@
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
+        <div class="ml-12">
+            <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
         <form method='POST' action='{{ route('payment.yoo_money',\App\Models\User::first()->id) }}' >
             Введите сумму оплаты:
             <input type='number' name='amount' value='100'/> <br />
@@ -401,6 +403,8 @@
             </select> <br />
             <input type='submit' value='Перейти к оплате' />
         </form>
+            </div>
+        </div>
     </div>
 </div>
 </body>

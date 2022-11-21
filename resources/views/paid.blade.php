@@ -22,7 +22,11 @@
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+            <div class="ml-12">
+                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
             {{ $paid }}
+                </div>
+            </div>
         </div>
     </body>
 </html>
