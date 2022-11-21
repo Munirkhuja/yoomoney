@@ -14,13 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('yoo_money_change_statuses', function (Blueprint $table) {
-            $table->id();
-            $table->string('yoo_money_id',50);
+            $table->string('id',50);
+            $table->foreignId('yoo_money_id')->constrained('yoo_money')->onDelete('cascade');
             $table->enum('status',['waiting_for_capture','pending','succeeded','canceled'])->default('pending');
             $table->boolean('paid')->default(false);
             $table->json('authorization_details');
             $table->json('payment_method');
-            $table->timestamp('expires_at');
+            $table->timestamp('expires_at')->default(\Carbon\Carbon::now());
+            $table->string('recipient_account_id',50)->nullable();
+            $table->string('recipient_gateway_id',50)->nullable();
+            $table->boolean('refundable')->default(false);
+            $table->boolean('test')->default(false);
+            $table->timestamp('yoo_created_at')->default(\Carbon\Carbon::now());
             $table->timestamps();
         });
     }
