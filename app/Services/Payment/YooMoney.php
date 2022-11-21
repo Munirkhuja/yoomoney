@@ -6,7 +6,6 @@ namespace App\Services\Payment;
 
 use App\Models\Payment\YooMoneyChangeStatus;
 use Illuminate\Support\Facades\Log;
-use Psy\Util\Str;
 
 class YooMoney
 {
@@ -15,7 +14,7 @@ class YooMoney
         $client = new \YooKassa\Client();
         $client->setAuth(config('yoo-money.app_id'), config('yoo-money.app_key'));
         try {
-            $uniq_id = Str::uuid();
+            $uniq_id = uniqid('', true);
             $payment = $client->createPayment(
                 array(
                     'amount' => array(
