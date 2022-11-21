@@ -25,7 +25,7 @@ class PaymentRequest extends FormRequest
     {
         return [
             'amount' => ['required', 'numeric', 'min:01'],
-            'currency' => ['required', 'string', 'enum:RUB,USD,EU']
+            'currency' => ['required', 'string', 'in:RUB,USD,EU']
         ];
     }
 }
