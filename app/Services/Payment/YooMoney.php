@@ -23,7 +23,7 @@ class YooMoney
                     ),
                     'confirmation' => array(
                         'type' => 'redirect',
-                        'return_url' => route('payment.redirect', $uniq_id),
+                        'return_url' => route('payment.redirect', ['uniq_id' => $uniq_id]),
                     ),
                     'capture' => true,
                     'description' => 'Заказ №1',
