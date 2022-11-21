@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('yoo_money', function (Blueprint $table) {
             $table->id();
-            $table->string('yoo_money_id',50)->nullable();
+            $table->string('yoo_money_id',50)->default('');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('amount',15,2);
             $table->enum('currency',['RUB','USD'])->default('RUB');
