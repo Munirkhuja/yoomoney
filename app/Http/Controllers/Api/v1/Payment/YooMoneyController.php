@@ -29,7 +29,7 @@ class YooMoneyController extends Controller
 
     public function payment_check(Request $request)
     {
-        $paid = YooMoney::check_payment($request->uniq_id);
+        $paid = YooMoney::check_payment($request->id);
         return view('paid')->with(['paid' => $paid ? 'paid' : 'not paid']);
     }
 }
