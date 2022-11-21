@@ -30,7 +30,7 @@ class YooMoney
                 ),
                 $uniq_id
             );
-            self::store_ctreate_payment($payment->jsonSerialize(), $user_id);
+            self::store_create_payment($payment->jsonSerialize(), $user_id);
             return $payment->getConfirmation()->getConfirmationUrl();
         } catch (\Exception $e) {
             Log::build([
