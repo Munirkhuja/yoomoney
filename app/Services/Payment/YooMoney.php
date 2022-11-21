@@ -83,7 +83,7 @@ class YooMoney
     public static function check_payment($id)
     {
         $yoo_money = \App\Models\Payment\YooMoney::select('yoo_money_id')
-            ->finOrFail($id);
+            ->findOrFail($id);
         $paid = YooMoneyChangeStatus::select('paid')
             ->where('yoo_money_id', $yoo_money->yoo_money_id)
             ->where('paid', true)
