@@ -41,7 +41,7 @@ class YooMoney
         }
     }
 
-    private function store_create_payment($payment_responce, $user_id)
+    private static function store_create_payment($payment_responce, $user_id)
     {
         \App\Models\Payment\YooMoney::create([
             'yoo_money_id' => $payment_responce['id'],
