@@ -27,6 +27,6 @@ class YooMoneyChangeStatus extends Model
 
     public function yoo_money()
     {
-        return $this->belongsTo(YooMoney::class, 'yoo_money_id', 'yoo_money_id');
+        return $this->belongsTo(YooMoney::class, 'id', 'yoo_money_id');
     }
 }

@@ -17,6 +17,6 @@ class YooMoney extends Model
 
     public function yoo_money()
     {
-        return $this->hasMany(YooMoneyChangeStatus::class, 'yoo_money_id', 'yoo_money_id');
+        return $this->hasMany(YooMoneyChangeStatus::class, 'yoo_money_id', 'id');
     }
 }
