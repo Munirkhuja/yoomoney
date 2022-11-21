@@ -88,6 +88,6 @@ class YooMoney
             ->where('yoo_money_id', $yoo_money->yoo_money_id)
             ->where('paid', true)
             ->first();
-        return $paid->paid;
+        return $paid->paid ?? $yoo_money->paid;
     }
 }
