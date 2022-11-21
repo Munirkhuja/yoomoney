@@ -16,13 +16,14 @@ trait ConnectSendTrait
         'headers' => [
             'Content-Type' => 'application/json'
         ]];
-    private $api_token='';
-    public function send($method,$url,$data=[])
+    private $api_token = '';
+
+    public function send($method, $url, $data = [])
     {
-        if ($url!='/WebMarker/login') $this->NewConnection();
+        if ($url != '/WebMarker/login') $this->NewConnection();
         $http = new \GuzzleHttp\Client($this->settings);
         try {
-            $response = $http->request($method,$url, $data);
+            $response = $http->request($method, $url, $data);
             $response = json_decode((string)$response->getBody(), true);
             return $response;
         } catch (\GuzzleHttp\Exception\ConnectException $e) {
@@ -36,7 +37,7 @@ trait ConnectSendTrait
             Log::build([
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
-            ])->error((string)$e->getResponse()->getStatusCode().';'.$responseBodyAsString);
+            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
         }
     }
 
