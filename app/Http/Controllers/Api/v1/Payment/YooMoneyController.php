@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api\v1\Payment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
 use App\Services\Payment\YooMoney;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 
 class YooMoneyController extends Controller
 {
