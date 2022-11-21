@@ -16,6 +16,13 @@ class YooMoneyChangeStatus extends Model
         'authorization_details',
         'payment_method',
         'expires_at',
+        'description',
+        'metadata',
+        'recipient_account_id',
+        'recipient_gateway_id',
+        'refundable',
+        'test',
+        'yoo_created_at'
     ];
 
     public function yoo_money()
