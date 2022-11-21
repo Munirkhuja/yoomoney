@@ -7,7 +7,7 @@ use App\Http\Requests\PaymentRequest;
 use App\Services\Payment\YooMoney;
 use Illuminate\Http\Client\Request;
 
-class YoumoneyController extends Controller
+class YooMoneyController extends Controller
 {
     public function __invoke(PaymentRequest $request, $user_id = false)
     {

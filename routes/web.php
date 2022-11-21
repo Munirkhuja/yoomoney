@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\v1\Payment\YoumoneyController;
+use App\Http\Controllers\Api\v1\Payment\YooMoneyController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +19,8 @@ Route::get('/', function () {
 });
 Route::group(['prefix' => 'payments'], function () {
     Route::group(['prefix' => 'yoo-money'], function () {
-        Route::get('check/{uniq_id}', [YoumoneyController::class, 'payment_check'])
+        Route::get('check/{uniq_id}', [YooMoneyController::class, 'payment_check'])
             ->name('payment.redirect');
-        Route::get('/', [YoumoneyController::class, 'index']);
+        Route::get('/', [YooMoneyController::class, 'index']);
     });
 });
