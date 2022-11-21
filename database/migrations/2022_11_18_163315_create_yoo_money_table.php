@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('recipient_gateway_id',50)->nullable();
             $table->boolean('refundable')->default(false);
             $table->boolean('test')->default(false);
-            $table->timestamp('yoo_created_at');
+            $table->timestamp('yoo_created_at')->default(\Carbon\Carbon::now());
             $table->timestamps();
         });
     }
