@@ -92,7 +92,7 @@ class YooMoney
         return $paid->paid ?? false;
     }
 
-    public function get_change_payment()
+    public static function get_change_payment()
     {
         $client = new \YooKassa\Client();
         $client->setAuth(config('yoo-money.app_id'), config('yoo-money.app_key'));
