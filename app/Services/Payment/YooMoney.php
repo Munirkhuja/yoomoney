@@ -51,7 +51,7 @@ class YooMoney
 
     private static function store_create_payment($yoo_money_change, $payment_responce, $yoo_money_id = false)
     {
-        if ($yoo_money_id === false) {
+        if ($yoo_money_id !== false) {
             $yoo_money_change->yoo_money_id = $yoo_money_id;
         }
         $yoo_money_change->id = $payment_responce['id'];
