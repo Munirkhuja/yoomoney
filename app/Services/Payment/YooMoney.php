@@ -64,8 +64,8 @@ class YooMoney
         $yoo_money_change->refundable = $payment_responce['refundable'];
         $yoo_money_change->test = $payment_responce['test'];
         $yoo_money_change->yoo_created_at = $payment_responce['created_at'];
-        $yoo_money_change->authorization_details = $payment_responce['authorization_details'] ?? "";
-        $yoo_money_change->payment_method = $payment_responce['payment_method'] ?? "";
+        $yoo_money_change->authorization_details = $payment_responce['authorization_details'] ?? json_encode([]);
+        $yoo_money_change->payment_method = $payment_responce['payment_method'] ?? json_encode([]);
         $yoo_money_change->expires_at = $payment_responce['expires_at'] ?? Carbon::now();
         $yoo_money_change->save();
     }
