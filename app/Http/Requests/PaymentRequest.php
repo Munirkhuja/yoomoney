@@ -24,7 +24,7 @@ class PaymentRequest extends FormRequest
     public function rules()
     {
         return [
-            'amount' => ['required', 'numeric', 'min:01'],
+            'amount' => ['required', 'numeric', 'min:0.1'],
             'currency' => ['required', 'string', 'in:RUB,USD,EU']
         ];
     }

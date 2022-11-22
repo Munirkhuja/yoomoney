@@ -5,6 +5,7 @@ namespace App\Services\Payment;
 
 
 use App\Models\Payment\YooMoneyChangeStatus;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Log;
@@ -17,7 +18,7 @@ class YooMoney
         $client = new \YooKassa\Client();
         $client->setAuth(config('yoo-money.app_id'), config('yoo-money.app_key'));
         $yoo_money = new \App\Models\Payment\YooMoney();
-        $yoo_money->user_id = $user_id;
+        $yoo_money->user_id = $user_id??User::first()->id;
         $yoo_money->amount = $amount;
         $yoo_money->currency = $currency;
         $yoo_money->save();

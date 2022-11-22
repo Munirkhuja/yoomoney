@@ -10,6 +10,7 @@ class YooMoneyChangeStatus extends Model
     use HasFactory;
 
     protected $fillable = [
+        'id',
         'yoo_money_id',
         'paid',
         'status',
