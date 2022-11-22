@@ -18,6 +18,8 @@ return new class extends Migration
             $table->foreignId('yoo_money_id')->constrained('yoo_money')->onDelete('cascade');
             $table->enum('status',['waiting_for_capture','pending','succeeded','canceled'])->default('pending');
             $table->boolean('paid')->default(false);
+            $table->text('description')->nullable();
+            $table->text('metadata')->nullable();
             $table->json('authorization_details');
             $table->json('payment_method');
             $table->timestamp('expires_at')->default(\Carbon\Carbon::now());
