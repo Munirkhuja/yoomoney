@@ -26,14 +26,11 @@ trait ConnectSendTrait
         try {
             $response = $http->request($method, $url, $data);
             $response = json_decode((string)$response->getBody(), true);
-            if (500 == $response->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
-                $mar = new MarkerApi();
-                $mar->Login();
-                $max_feed--;
-                $this->send($method, $url, $data, $max_feed);
-            }else{
-                return $response;
-            }
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$response->getStatusCode() . ';' . $response);
+            return $response;
         } catch (\GuzzleHttp\Exception\ConnectException $e) {
             if (500 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
                 $mar = new MarkerApi();
