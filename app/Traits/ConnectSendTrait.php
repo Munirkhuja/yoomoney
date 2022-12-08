@@ -32,12 +32,6 @@ trait ConnectSendTrait
             ])->error((string)$response->getStatusCode() . ';' . $response);
             return $response;
         } catch (\GuzzleHttp\Exception\ConnectException $e) {
-            if (500 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
-                $mar = new MarkerApi();
-                $mar->Login();
-                $max_feed--;
-                $this->send($method, $url, $data, $max_feed);
-            }
             Log::build([
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
