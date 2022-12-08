@@ -19,50 +19,45 @@ trait ConnectSendTrait
         ]];
     private $api_token = '';
 
-    public function send($method, $url, $data = [], $max_feed = 1)
+    public function send($method, $url, $data = [], $max_feed = 3)
     {
-        if ($url != '/WebMarker/login' && $max_feed > 0) {
-            $mar = new MarkerApi();
-            $mar->Login();
-            $max_feed--;
-            $this->send($method, $url, $data, $max_feed);
-        }else {
-            if ($url != '/WebMarker/login') $this->NewConnection();
-            $http = new \GuzzleHttp\Client($this->settings);
-            try {
-                $response = $http->request($method, $url, $data);
-                $response = json_decode((string)$response->getBody(), true);
-                Log::build([
-                    'driver' => 'single',
-                    'path' => storage_path('logs/marker_api_con.log'),
-                ])->error((string)$response->getBody());
-                if (500 == $response->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
-                    $mar = new MarkerApi();
-                    $mar->Login();
-                    $max_feed--;
-                    $this->send($method, $url, $data, $max_feed);
-                } else {
-                    return $response;
-                }
-            } catch (\GuzzleHttp\Exception\ConnectException $e) {
-                Log::build([
-                    'driver' => 'single',
-                    'path' => storage_path('logs/marker_api_con.log'),
-                ])->error((string)$e->getCode());
-            } catch (\GuzzleHttp\Exception\ClientException $e) {
-                $response = $e->getResponse();
-                $responseBodyAsString = $response->getBody()->getContents();
-                if (401 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
-                    $mar = new MarkerApi();
-                    $mar->Login();
-                    $max_feed--;
-                    $this->send($method, $url, $data, $max_feed);
-                }
-                Log::build([
-                    'driver' => 'single',
-                    'path' => storage_path('logs/marker_api_con.log'),
-                ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
+        if ($url != '/WebMarker/login') $this->NewConnection();
+        $http = new \GuzzleHttp\Client($this->settings);
+        try {
+            $response = $http->request($method, $url, $data);
+            $response = json_decode((string)$response->getBody(), true);
+            if (500 == $response->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
+                $mar = new MarkerApi();
+                $mar->Login();
+                $max_feed--;
+                $this->send($method, $url, $data, $max_feed);
+            }else{
+                return $response;
             }
+        } catch (\GuzzleHttp\Exception\ConnectException $e) {
+            if (500 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
+                $mar = new MarkerApi();
+                $mar->Login();
+                $max_feed--;
+                $this->send($method, $url, $data, $max_feed);
+            }
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$e->getCode());
+        } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            if (401 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
+                $mar = new MarkerApi();
+                $mar->Login();
+                $max_feed--;
+                $this->send($method, $url, $data, $max_feed);
+            }
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
         }
     }
 
