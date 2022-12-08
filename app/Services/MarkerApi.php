@@ -33,7 +33,9 @@ class MarkerApi
         $result = $this->send('POST', '/WebMarker/login', [
             'body' => json_encode(["username" => "tester", "password" => "tester"])
         ]);
-
+        if ($result===false){
+            return false;
+        }
         if (Auth()->user()) {
             $user = User::where('id', Auth()->user()->id)->first();
 
