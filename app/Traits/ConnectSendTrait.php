@@ -26,10 +26,6 @@ trait ConnectSendTrait
         try {
             $response = $http->request($method, $url, $data);
             $response = json_decode((string)$response->getBody(), true);
-            Log::build([
-                'driver' => 'single',
-                'path' => storage_path('logs/marker_api_con.log'),
-            ])->error((string)$response->getStatusCode() . ';' . $response);
             return $response;
         } catch (\GuzzleHttp\Exception\ConnectException $e) {
             Log::build([
@@ -39,7 +35,12 @@ trait ConnectSendTrait
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
-            if (401 == $e->getResponse()->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
+        } catch (\Exception $e) {
+            if ($url != '/WebMarker/login' && $max_feed > 0) {
                 $mar = new MarkerApi();
                 $mar->Login();
                 $max_feed--;
@@ -48,13 +49,9 @@ trait ConnectSendTrait
             Log::build([
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
-            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
-        } catch (\Exception $e) {
-            Log::build([
-                'driver' => 'single',
-                'path' => storage_path('logs/marker_api_con.log'),
             ])->error($e->getMessage(),$e->getTrace());
         }
+        return false;
     }
 
     public function NewConnection()
