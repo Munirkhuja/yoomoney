@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('dataset_id')->constrained('datasets')->onDelete('cascade');
             $table->text('data');
-            $table->string('image_id','48');
+            $table->foreignId('image_id')->constrained('media');
             $table->timestamps();
         });
     }

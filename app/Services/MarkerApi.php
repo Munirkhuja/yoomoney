@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 
@@ -15,6 +16,7 @@ use App\Traits\ConnectSendTrait;
 class MarkerApi
 {
     use ConnectSendTrait;
+
 
     public function RefreshApiToken()
     {
@@ -171,7 +173,7 @@ class MarkerApi
 
             $labelsSettings['label_list'] = array_values($labelsSettings['label_list']);
 
-            $this->startTrain($linkID, $labelsSettings);
+            return $this->startTrain($linkID, $labelsSettings);
 
 
             /*echo '<pre>';
@@ -312,7 +314,7 @@ class MarkerApi
         $base["config"]["model"]["config"]["labels"] = $labelsSettings;
         $base["config"]["name"] = $id;
 
-        $this->send('POST', '/WebMarker/startTrain', ["body" => json_encode($base)]);
+        return $this->send('POST', '/WebMarker/startTrain', ["body" => json_encode($base)]);
     }
 
 
