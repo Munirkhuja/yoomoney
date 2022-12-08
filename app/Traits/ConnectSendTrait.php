@@ -49,6 +49,11 @@ trait ConnectSendTrait
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
             ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
+        } catch (\Exception $e) {
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error($e->getMessage(),$e->getTrace());
         }
     }
 
