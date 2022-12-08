@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         $label = Label::create([
             'user_id' => $user_id,
             'project_id' => $project->id,
+            'dataset_id' => $dataset->id,
             'name' => 'ball',
             'color' => 'red'
         ]);
