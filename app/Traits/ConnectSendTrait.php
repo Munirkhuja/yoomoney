@@ -26,6 +26,10 @@ trait ConnectSendTrait
         try {
             $response = $http->request($method, $url, $data);
             $response = json_decode((string)$response->getBody(), true);
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$response->getCode());
             if (500 == $response->getStatusCode() && $url != '/WebMarker/login' && $max_feed > 0) {
                 $mar = new MarkerApi();
                 $mar->Login();
