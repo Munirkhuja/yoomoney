@@ -55,7 +55,7 @@ trait ConnectSendTrait
                 'path' => storage_path('logs/marker_api_con.log'),
             ])->error($e->getMessage(), $e->getTrace());
         }
-        return response()->json(false);
+        return false;
     }
 
     public function NewConnection()
