@@ -34,6 +34,13 @@ trait ConnectSendTrait
                 'path' => storage_path('logs/marker_api_con.log'),
             ])->error((string)$e->getCode());
         } catch (\GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
+        } catch (\Exception $e) {
             if ($url != '/WebMarker/login' && $max_feed > 0 && isset($this->settings['headers']['Authorization']) && !empty($this->settings['headers']['Authorization'])) {
                 if( $max_feed > 1){
                     $this->RefreshApiToken();
@@ -43,13 +50,6 @@ trait ConnectSendTrait
                 $max_feed--;
                 return $this->send($method, $url, $data, $max_feed);
             }
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            Log::build([
-                'driver' => 'single',
-                'path' => storage_path('logs/marker_api_con.log'),
-            ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
-        } catch (\Exception $e) {
             Log::build([
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
