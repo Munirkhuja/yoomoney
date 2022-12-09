@@ -82,7 +82,11 @@ trait ConnectSendTrait
         }
         $this->settings['headers']['Authorization'] = 'Bearer ' . $refresh_token;
         $result = $this->send('GET', '/WebMarker/token/refresh');
-        $user = User::where('id', Auth()->user()->id)->first();
+        if (Auth()->user()) {
+            $user = User::where('id', Auth()->user()->id)->first();
+        } else {
+            $user =User::where('id', 1)->first();
+        }
         $user->api_token = $result['access_token'];
         $user->save();
         $this->api_token = $result['access_token'];
