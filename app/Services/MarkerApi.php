@@ -17,40 +17,6 @@ class MarkerApi
 {
     use ConnectSendTrait;
 
-
-    public function RefreshApiToken()
-    {
-        $this->settings['headers']['Authorization'] = 'Bearer ' . Auth::user()->refresh_token;
-        $result = $this->send('GET', '/WebMarker/token/refresh');
-        $user = User::where('id', Auth()->user()->id)->first();
-        $user->api_token = $result->access_token;
-        $user->save();
-    }
-
-    public function Login()
-    {
-        unset($this->settings['headers']['Authorization']);
-        $result = $this->send('POST', '/WebMarker/login', [
-            'body' => json_encode(["username" => "tester", "password" => "tester"])
-        ]);
-        if ($result===false){
-            return false;
-        }
-        if (Auth()->user()) {
-            $user = User::where('id', Auth()->user()->id)->first();
-
-            $user->api_token = $result->access_token;
-            $user->refresh_token = $result->refresh_token;
-            $user->save();
-        } else {
-            $user = User::where('id', 1)->first();
-
-            $user->api_token = $result->access_token;
-            $user->refresh_token = $result->refresh_token;
-            $user->save();
-        }
-    }
-
     public function getDatasets()
     {
         return $this->send('GET', '/WebMarker/datasets');
