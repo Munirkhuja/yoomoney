@@ -56,18 +56,6 @@ trait ConnectSendTrait
 
     public function NewConnection()
     {
-        if (isset($this->settings['headers']['Authorization']) && !empty($this->settings['headers']['Authorization'])) {
-            return;
-        }
-        $this->set_api_token();
-        if (empty($this->api_token)) {
-            $this->Login();
-        }
-        $this->settings['headers']['Authorization'] = 'Bearer ' . $this->api_token;
-    }
-
-    private function set_api_token()
-    {
         if (Auth()->user()) {
             $user = Auth::user();
             $this->api_token = $user->api_token;
@@ -75,6 +63,10 @@ trait ConnectSendTrait
             $user = User::where('id', 1)->first();
             $this->api_token = $user->api_token;
         }
+        if (empty($this->api_token)) {
+            $this->Login();
+        }
+        $this->settings['headers']['Authorization'] = 'Bearer ' . $this->api_token;
     }
 
     public function RefreshApiToken()
@@ -82,9 +74,10 @@ trait ConnectSendTrait
         $this->settings['headers']['Authorization'] = 'Bearer ' . Auth::user()->refresh_token;
         $result = $this->send('GET', '/WebMarker/token/refresh');
         $user = User::where('id', Auth()->user()->id)->first();
-        $user->api_token = $result->access_token;
+        $user->api_token = $result['access_token'];
+        $user->refresh_token = $result['refresh_token'];
         $user->save();
-        $this->api_token = $result->access_token;
+        $this->api_token = $result['access_token'];
     }
 
     public function Login()
@@ -93,7 +86,7 @@ trait ConnectSendTrait
         $result = $this->send('POST', '/WebMarker/login', [
             'body' => json_encode(["username" => "tester", "password" => "tester"])
         ]);
-        if ($result === false || !isset($result->access_token)) {
+        if ($result === false || !isset($result['access_token'])) {
             Log::build([
                 'driver' => 'single',
                 'path' => storage_path('logs/marker_api_con.log'),
@@ -102,16 +95,16 @@ trait ConnectSendTrait
         }
         if (Auth()->user()) {
             $user = User::where('id', Auth()->user()->id)->first();
-            $user->api_token = $result->access_token;
-            $user->refresh_token = $result->refresh_token;
+            $user->api_token = $result['access_token'];
+            $user->refresh_token = $result['refresh_token'];
             $user->save();
-            $this->api_token = $result->access_token;
+            $this->api_token = $result['access_token'];
         } else {
             $user = User::where('id', 1)->first();
-            $user->api_token = $result->access_token;
-            $user->refresh_token = $result->refresh_token;
+            $user->api_token = $result['access_token'];
+            $user->refresh_token = $result['refresh_token'];
             $user->save();
-            $this->api_token = $result->access_token;
+            $this->api_token = $result['access_token'];
         }
     }
 }

@@ -5,12 +5,7 @@ namespace App\Services;
 
 use App\Models\Dataset;
 use App\Models\Label;
-use App\Models\NeuralNetwork;
 use App\Models\Polygon;
-use App\Models\User;
-use Illuminate\Support\Facades\Auth;
-use Ramsey\Uuid\Uuid;
-
 use App\Traits\ConnectSendTrait;
 
 class MarkerApi
@@ -26,7 +21,7 @@ class MarkerApi
     {
         $this->send('POST', '/WebMarker/removeDataset', [
             'body' => json_encode([
-                "name" => $id
+                "name" => "$id"
             ])
         ]);
     }
@@ -198,7 +193,7 @@ class MarkerApi
 
     public function getDataset($name)
     {
-        return $this->getDatasets()->datasets->$name ?? null;
+        return $this->getDatasets()['datasets']["$name"] ?? null;
     }
 
     public function getImage($set, $id)
@@ -256,7 +251,7 @@ class MarkerApi
             }
         }
 
-        $nm = NeuralNetwork::where('status', 'training')->get();
+        $nm = Dataset::where('status', 'training')->get();
 
         if ($nm) {
             foreach ($nm as $model) {
