@@ -46,7 +46,7 @@ trait ConnectSendTrait
                 'path' => storage_path('logs/marker_api_con.log'),
             ])->error($e->getMessage(), $e->getTrace());
         }
-        if ($url != '/WebMarker/login' && $max_feed > 0) {
+        if ($url != '/WebMarker/login' && $max_feed > 0 && isset($this->settings['headers']['Authorization']) && !empty($this->settings['headers']['Authorization'])) {
             $max_feed--;
             $this->Login();
             $this->send($method, $url, $data, $max_feed);
