@@ -35,9 +35,13 @@ trait ConnectSendTrait
             ])->error((string)$e->getCode());
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             if ($url != '/WebMarker/login' && $max_feed > 0 && isset($this->settings['headers']['Authorization']) && !empty($this->settings['headers']['Authorization'])) {
+                if( $max_feed > 1){
+                    $this->RefreshApiToken();
+                }else{
+                    $this->Login();
+                }
                 $max_feed--;
-                $this->Login();
-                $this->send($method, $url, $data, $max_feed);
+                return $this->send($method, $url, $data, $max_feed);
             }
             $response = $e->getResponse();
             $responseBodyAsString = $response->getBody()->getContents();
