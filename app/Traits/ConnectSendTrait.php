@@ -79,7 +79,6 @@ trait ConnectSendTrait
         $result = $this->send('GET', '/WebMarker/token/refresh');
         $user = User::where('id', Auth()->user()->id)->first();
         $user->api_token = $result['access_token'];
-        $user->refresh_token = $result['refresh_token'];
         $user->save();
         $this->api_token = $result['access_token'];
     }
