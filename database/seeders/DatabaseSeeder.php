@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user_id,
             'project_id' => $project->id,
             'name' => 'dtst1',
-            'status' => 'start',
+            'status' => 'training',
             'progress' => '0',
             'link_id' => '/',
         ]);

@@ -14,4 +14,9 @@ class SmartDevController extends Controller
         return $mar->createDataset($dataset_id, $link_id);
     }
 
+    public function getStatuses()
+    {
+        $mar = new MarkerApi();
+        return $mar->getStatuses();
+    }
 }
