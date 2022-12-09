@@ -265,7 +265,7 @@ class MarkerApi
                 $model->save();
             }
         }
-        return $data;
+        return response()->json($data);
     }
 
     public function startTrain($id, $labelsSettings)
