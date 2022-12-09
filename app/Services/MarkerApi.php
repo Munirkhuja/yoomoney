@@ -228,6 +228,7 @@ class MarkerApi
     public function getStatuses()
     {
         $data = $this->send('POST', '/WebMarker/getTrainDashboard', ["body" => json_encode([])]);
+        return $data;
         $m = [];
         if (count($data['models_list'])) {
             foreach ($data['models_list'] as $model) {
