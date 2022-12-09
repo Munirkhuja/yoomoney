@@ -42,9 +42,9 @@ trait ConnectSendTrait
             ])->error((string)$e->getResponse()->getStatusCode() . ';' . $responseBodyAsString);
         } catch (\Exception $e) {
             if ($url != '/WebMarker/login' && $max_feed > 0 && isset($this->settings['headers']['Authorization']) && !empty($this->settings['headers']['Authorization'])) {
-                if( $max_feed > 1){
+                if ($max_feed > 1) {
                     $this->RefreshApiToken();
-                }else{
+                } else {
                     $this->Login();
                 }
                 $max_feed--;
@@ -75,7 +75,12 @@ trait ConnectSendTrait
 
     public function RefreshApiToken()
     {
-        $this->settings['headers']['Authorization'] = 'Bearer ' . Auth::user()->refresh_token;
+        if (Auth()->user()) {
+            $refresh_token = Auth::user()->refresh_token;
+        } else {
+            $refresh_token =User::where('id', 1)->first()->refresh_token;
+        }
+        $this->settings['headers']['Authorization'] = 'Bearer ' . $refresh_token;
         $result = $this->send('GET', '/WebMarker/token/refresh');
         $user = User::where('id', Auth()->user()->id)->first();
         $user->api_token = $result['access_token'];
