@@ -93,7 +93,11 @@ trait ConnectSendTrait
         $result = $this->send('POST', '/WebMarker/login', [
             'body' => json_encode(["username" => "tester", "password" => "tester"])
         ]);
-        if ($result === false) {
+        if ($result === false || !isset($result->access_token)) {
+            Log::build([
+                'driver' => 'single',
+                'path' => storage_path('logs/marker_api_con.log'),
+            ])->error($result);
             return false;
         }
         if (Auth()->user()) {
