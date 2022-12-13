@@ -32,6 +32,6 @@ class YooMoneyEvent
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('moneys'.$this->money);
+        return new PrivateChannel('moneys.'.$this->money);
     }
 }
