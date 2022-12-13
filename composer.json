@@ -6,13 +6,16 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-gd": "*",
+        "beyondcode/laravel-websockets": "^1.13",
+        "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
-        "yoomoney/yookassa-sdk-php": "^2.7.1",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-medialibrary": "^10.0.0",
-        "ext-gd": "*"
+        "yoomoney/yookassa-sdk-php": "^2.7.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

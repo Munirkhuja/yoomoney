@@ -10,6 +10,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Dataset extends Model implements HasMedia
 {
     use HasFactory,InteractsWithMedia;
+    const TRAINING="training";
 
     protected $fillable = [
         'user_id',
