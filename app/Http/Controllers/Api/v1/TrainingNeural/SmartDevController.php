@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1\TrainingNeural;
 
+use App\Events\YooMoneyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DatasetRequest;
 use App\Models\Dataset;
@@ -17,7 +18,10 @@ class SmartDevController extends Controller
     }
     public function getStatuses()
     {
-        $mar = new MarkerApi();
-        return $mar->getStatuses();
+
+        YooMoneyEvent::dispatch(5);
+        return response()->json(5);
+//        $mar = new MarkerApi();
+//        return $mar->getStatuses();
     }
 }
