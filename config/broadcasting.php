@@ -38,7 +38,7 @@ return [
                 'cluster' => 'mt1',
                 'encrypted' => true,
                 'host' => '127.0.0.1',
-                'port' => 6001,
+                'port' => 6005,
                 'scheme' => 'http'
             ],
         ],
