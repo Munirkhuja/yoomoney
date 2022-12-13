@@ -23,9 +23,9 @@ class YooMoneyController extends Controller
         YooMoney::change_webhook($request);
     }
 
-    public function websocket_send()
+    public function websocket_send($m)
     {
-        YooMoneyEvent::dispatch(5);
+        YooMoneyEvent::dispatch($m);
     }
     public function index()
     {

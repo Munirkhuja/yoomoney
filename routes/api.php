@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 //});
 Route::get('dataset/{dataset_id}', [SmartDevController::class, 'send_dataset']);
 Route::get('getStatuses', [SmartDevController::class, 'getStatuses']);
+Route::get('websocket_send/{$m}', [YooMoneyController::class, 'websocket_send']);
 Route::group(['prefix' => 'payments'], function () {
     Route::group(['prefix' => 'yoo-money'], function () {
         Route::post('/{user_id?}', YooMoneyController::class)->name('payment.yoo_money');
