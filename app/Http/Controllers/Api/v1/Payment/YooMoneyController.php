@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\v1\Payment;
 
+use App\Events\YooMoneyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PaymentRequest;
 use App\Services\Payment\YooMoney;
@@ -22,6 +23,10 @@ class YooMoneyController extends Controller
         YooMoney::change_webhook($request);
     }
 
+    public function websocket_send()
+    {
+        YooMoneyEvent::dispatch(5);
+    }
     public function index()
     {
         return view('create_payment');
