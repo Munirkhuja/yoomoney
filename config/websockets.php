@@ -23,26 +23,16 @@ return [
      */
     'apps' => [
         [
-            'id' => '8795727',
-            'name' => 'lara',
-            'key' => '123',
-            'secret' => '456',
-            'enable_client_messages' => false,
+            'id' => env('PUSHER_APP_ID'),
+            'name' => env('APP_NAME'),
+            'key' => env('PUSHER_APP_KEY'),
+            'secret' => env('PUSHER_APP_SECRET'),
+//            'path' => env('PUSHER_APP_PATH'),
+            'capacity' => null,
+            'enable_client_messages' => true,
             'enable_statistics' => true,
         ],
     ],
-//    'apps' => [
-//        [
-//            'id' => env('PUSHER_APP_ID'),
-//            'name' => env('APP_NAME'),
-//            'key' => env('PUSHER_APP_KEY'),
-//            'secret' => env('PUSHER_APP_SECRET'),
-////            'path' => env('PUSHER_APP_PATH'),
-//            'capacity' => null,
-//            'enable_client_messages' => true,
-//            'enable_statistics' => true,
-//        ],
-//    ],
 
     /*
      * This class is responsible for finding the apps. The default provider
