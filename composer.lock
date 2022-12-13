@@ -4,56 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc4bb61ee401022bbc921b44b4ef0349",
+    "content-hash": "dac3b5b91815630dd1720fe7d11f0929",
     "packages": [
         {
             "name": "beyondcode/laravel-websockets",
-            "version": "dev-master",
+            "version": "1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/beyondcode/laravel-websockets.git",
-                "reference": "1f25913ce05c66bbff1f925106bf9490ec0eb3bf"
+                "reference": "f0649b65fb5562d20eff66f61716ef98717e228a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/1f25913ce05c66bbff1f925106bf9490ec0eb3bf",
-                "reference": "1f25913ce05c66bbff1f925106bf9490ec0eb3bf",
+                "url": "https://api.github.com/repos/beyondcode/laravel-websockets/zipball/f0649b65fb5562d20eff66f61716ef98717e228a",
+                "reference": "f0649b65fb5562d20eff66f61716ef98717e228a",
                 "shasum": ""
             },
             "require": {
-                "cboden/ratchet": "^0.4.4",
-                "clue/block-react": "^1.5",
-                "clue/reactphp-sqlite": "^1.0",
-                "clue/redis-react": "^2.6",
-                "doctrine/dbal": "^2.9",
-                "evenement/evenement": "^2.0|^3.0",
+                "cboden/ratchet": "^0.4.1",
+                "ext-json": "*",
                 "facade/ignition-contracts": "^1.0",
-                "guzzlehttp/psr7": "^1.5",
-                "illuminate/broadcasting": "^9.0",
-                "illuminate/console": "^9.0",
-                "illuminate/http": "^9.0",
-                "illuminate/queue": "^9.0",
-                "illuminate/routing": "^9.0",
-                "illuminate/support": "^9.0",
-                "php": "^8.0|^8.1",
-                "pusher/pusher-php-server": "^6.0|^7.0",
-                "react/mysql": "^0.5",
-                "react/promise": "^2.8",
-                "symfony/http-kernel": "^5.0|^6.0",
+                "guzzlehttp/psr7": "^1.7|^2.0",
+                "illuminate/broadcasting": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/console": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/http": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/routing": "^6.0|^7.0|^8.0|^9.0",
+                "illuminate/support": "^6.0|^7.0|^8.0|^9.0",
+                "php": "^7.2|^8.0",
+                "pusher/pusher-php-server": "^3.0|^4.0|^5.0|^6.0|^7.0",
+                "react/dns": "^1.1",
+                "react/http": "^1.1",
+                "symfony/http-kernel": "^4.0|^5.0|^6.0",
                 "symfony/psr-http-message-bridge": "^1.1|^2.0"
             },
             "require-dev": {
-                "clue/buzz-react": "^2.9",
-                "laravel/legacy-factories": "^1.1",
-                "orchestra/testbench-browser-kit": "^7.0",
-                "phpunit/phpunit": "^9.0",
-                "ratchet/pawl": "^0.3.5"
+                "mockery/mockery": "^1.3.3",
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0"
             },
-            "suggest": {
-                "doctrine/dbal": "Required to run database migrations (^2.9|^3.0).",
-                "ext-pcntl": "Running the server needs pcntl to listen to command signals and soft-shutdown."
-            },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -67,7 +55,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "BeyondCode\\LaravelWebSockets\\": "src/"
+                    "BeyondCode\\LaravelWebSockets\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -86,26 +74,19 @@
                     "email": "freek@spatie.be",
                     "homepage": "https://spatie.be",
                     "role": "Developer"
-                },
-                {
-                    "name": "Alex Renoki",
-                    "homepage": "https://github.com/rennokki",
-                    "role": "Developer"
                 }
             ],
-            "description": "An easy to launch a Pusher-compatible WebSockets server for Laravel.",
+            "description": "An easy to use WebSocket server",
             "homepage": "https://github.com/beyondcode/laravel-websockets",
             "keywords": [
                 "beyondcode",
-                "laravel",
-                "laravel-websockets",
-                "php"
+                "laravel-websockets"
             ],
             "support": {
                 "issues": "https://github.com/beyondcode/laravel-websockets/issues",
-                "source": "https://github.com/beyondcode/laravel-websockets/tree/master"
+                "source": "https://github.com/beyondcode/laravel-websockets/tree/1.13.1"
             },
-            "time": "2022-10-06T18:42:05+00:00"
+            "time": "2022-03-03T08:41:47+00:00"
         },
         {
             "name": "brick/math",
@@ -225,321 +206,6 @@
                 "source": "https://github.com/ratchetphp/Ratchet/tree/v0.4.4"
             },
             "time": "2021-12-14T00:20:41+00:00"
-        },
-        {
-            "name": "clue/block-react",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/reactphp-block.git",
-                "reference": "718b0571a94aa693c6fffc72182e87257ac900f3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/reactphp-block/zipball/718b0571a94aa693c6fffc72182e87257ac900f3",
-                "reference": "718b0571a94aa693c6fffc72182e87257ac900f3",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "react/event-loop": "^1.2",
-                "react/promise": "^3.0 || ^2.7 || ^1.2.1",
-                "react/promise-timer": "^1.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35",
-                "react/http": "^1.4"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering"
-                }
-            ],
-            "description": "Lightweight library that eases integrating async components built for ReactPHP in a traditional, blocking environment.",
-            "homepage": "https://github.com/clue/reactphp-block",
-            "keywords": [
-                "async",
-                "await",
-                "blocking",
-                "event loop",
-                "promise",
-                "reactphp",
-                "sleep",
-                "synchronous"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/reactphp-block/issues",
-                "source": "https://github.com/clue/reactphp-block/tree/v1.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://clue.engineering/support",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "abandoned": "react/async",
-            "time": "2021-10-20T14:07:33+00:00"
-        },
-        {
-            "name": "clue/ndjson-react",
-            "version": "v1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/reactphp-ndjson.git",
-                "reference": "708411c7e45ac85371a99d50f52284971494bede"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/reactphp-ndjson/zipball/708411c7e45ac85371a99d50f52284971494bede",
-                "reference": "708411c7e45ac85371a99d50f52284971494bede",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3",
-                "react/stream": "^1.0 || ^0.7 || ^0.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35",
-                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Clue\\React\\NDJson\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering"
-                }
-            ],
-            "description": "Streaming newline-delimited JSON (NDJSON) parser and encoder for ReactPHP.",
-            "homepage": "https://github.com/clue/reactphp-ndjson",
-            "keywords": [
-                "NDJSON",
-                "json",
-                "jsonlines",
-                "newline",
-                "reactphp",
-                "streaming"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/reactphp-ndjson/issues",
-                "source": "https://github.com/clue/reactphp-ndjson/tree/v1.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://clue.engineering/support",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "time": "2020-12-09T13:09:07+00:00"
-        },
-        {
-            "name": "clue/reactphp-sqlite",
-            "version": "v1.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/reactphp-sqlite.git",
-                "reference": "eff96570e096caaf7f7f93a9a1b67f247e1ddbeb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/reactphp-sqlite/zipball/eff96570e096caaf7f7f93a9a1b67f247e1ddbeb",
-                "reference": "eff96570e096caaf7f7f93a9a1b67f247e1ddbeb",
-                "shasum": ""
-            },
-            "require": {
-                "clue/ndjson-react": "^1.0",
-                "ext-sqlite3": "*",
-                "php": ">=5.4",
-                "react/child-process": "^0.6",
-                "react/event-loop": "^1.2",
-                "react/promise": "^2.7 || ^1.2.1"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Clue\\React\\SQLite\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering"
-                }
-            ],
-            "description": "Async SQLite database, lightweight non-blocking process wrapper around file-based database extension (ext-sqlite3), built on top of ReactPHP.",
-            "homepage": "https://github.com/clue/reactphp-sqlite",
-            "keywords": [
-                "async",
-                "database",
-                "non-blocking",
-                "reactphp",
-                "sqlite"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/reactphp-sqlite/issues",
-                "source": "https://github.com/clue/reactphp-sqlite/tree/v1.5.0"
-            },
-            "funding": [
-                {
-                    "url": "https://clue.engineering/support",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-02-15T08:04:18+00:00"
-        },
-        {
-            "name": "clue/redis-protocol",
-            "version": "v0.3.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/php-redis-protocol.git",
-                "reference": "271b8009887209d930f613ad3b9518f94bd6b51c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/php-redis-protocol/zipball/271b8009887209d930f613ad3b9518f94bd6b51c",
-                "reference": "271b8009887209d930f613ad3b9518f94bd6b51c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Clue\\Redis\\Protocol": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@lueck.tv"
-                }
-            ],
-            "description": "A streaming redis wire protocol parser and serializer implementation in PHP",
-            "homepage": "https://github.com/clue/php-redis-protocol",
-            "keywords": [
-                "parser",
-                "protocol",
-                "redis",
-                "serializer",
-                "streaming"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/php-redis-protocol/issues",
-                "source": "https://github.com/clue/php-redis-protocol/tree/v0.3.1"
-            },
-            "time": "2017-06-06T16:07:10+00:00"
-        },
-        {
-            "name": "clue/redis-react",
-            "version": "v2.6.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/clue/reactphp-redis.git",
-                "reference": "f911455f9d7a77dd6f39c22548ddff521544b291"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/clue/reactphp-redis/zipball/f911455f9d7a77dd6f39c22548ddff521544b291",
-                "reference": "f911455f9d7a77dd6f39c22548ddff521544b291",
-                "shasum": ""
-            },
-            "require": {
-                "clue/redis-protocol": "0.3.*",
-                "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
-                "php": ">=5.3",
-                "react/event-loop": "^1.2",
-                "react/promise": "^2.0 || ^1.1",
-                "react/promise-timer": "^1.8",
-                "react/socket": "^1.9"
-            },
-            "require-dev": {
-                "clue/block-react": "^1.1",
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Clue\\React\\Redis\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering"
-                }
-            ],
-            "description": "Async Redis client implementation, built on top of ReactPHP.",
-            "homepage": "https://github.com/clue/reactphp-redis",
-            "keywords": [
-                "async",
-                "client",
-                "database",
-                "reactphp",
-                "redis"
-            ],
-            "support": {
-                "issues": "https://github.com/clue/reactphp-redis/issues",
-                "source": "https://github.com/clue/reactphp-redis/tree/v2.6.0"
-            },
-            "funding": [
-                {
-                    "url": "https://clue.engineering/support",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-05-09T09:50:02+00:00"
         },
         {
             "name": "darkaonline/l5-swagger",
@@ -770,343 +436,6 @@
                 "source": "https://github.com/doctrine/annotations/tree/1.14.1"
             },
             "time": "2022-12-12T12:46:12+00:00"
-        },
-        {
-            "name": "doctrine/cache",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/cache.git",
-                "reference": "1ca8f21980e770095a31456042471a57bc4c68fb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/1ca8f21980e770095a31456042471a57bc4c68fb",
-                "reference": "1ca8f21980e770095a31456042471a57bc4c68fb",
-                "shasum": ""
-            },
-            "require": {
-                "php": "~7.1 || ^8.0"
-            },
-            "conflict": {
-                "doctrine/common": ">2.2,<2.4"
-            },
-            "require-dev": {
-                "cache/integration-tests": "dev-master",
-                "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
-                "psr/cache": "^1.0 || ^2.0 || ^3.0",
-                "symfony/cache": "^4.4 || ^5.4 || ^6",
-                "symfony/var-exporter": "^4.4 || ^5.4 || ^6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                }
-            ],
-            "description": "PHP Doctrine Cache library is a popular cache implementation that supports many different drivers such as redis, memcache, apc, mongodb and others.",
-            "homepage": "https://www.doctrine-project.org/projects/cache.html",
-            "keywords": [
-                "abstraction",
-                "apcu",
-                "cache",
-                "caching",
-                "couchdb",
-                "memcached",
-                "php",
-                "redis",
-                "xcache"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/cache/issues",
-                "source": "https://github.com/doctrine/cache/tree/2.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fcache",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-05-20T20:07:39+00:00"
-        },
-        {
-            "name": "doctrine/dbal",
-            "version": "2.13.9",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c480849ca3ad6706a39c970cdfe6888fa8a058b8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c480849ca3ad6706a39c970cdfe6888fa8a058b8",
-                "reference": "c480849ca3ad6706a39c970cdfe6888fa8a058b8",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/cache": "^1.0|^2.0",
-                "doctrine/deprecations": "^0.5.3|^1",
-                "doctrine/event-manager": "^1.0",
-                "ext-pdo": "*",
-                "php": "^7.1 || ^8"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "9.0.0",
-                "jetbrains/phpstorm-stubs": "2021.1",
-                "phpstan/phpstan": "1.4.6",
-                "phpunit/phpunit": "^7.5.20|^8.5|9.5.16",
-                "psalm/plugin-phpunit": "0.16.1",
-                "squizlabs/php_codesniffer": "3.6.2",
-                "symfony/cache": "^4.4",
-                "symfony/console": "^2.0.5|^3.0|^4.0|^5.0",
-                "vimeo/psalm": "4.22.0"
-            },
-            "suggest": {
-                "symfony/console": "For helpful console commands such as SQL execution and import of files."
-            },
-            "bin": [
-                "bin/doctrine-dbal"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\DBAL\\": "lib/Doctrine/DBAL"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                }
-            ],
-            "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
-            "homepage": "https://www.doctrine-project.org/projects/dbal.html",
-            "keywords": [
-                "abstraction",
-                "database",
-                "db2",
-                "dbal",
-                "mariadb",
-                "mssql",
-                "mysql",
-                "oci8",
-                "oracle",
-                "pdo",
-                "pgsql",
-                "postgresql",
-                "queryobject",
-                "sasql",
-                "sql",
-                "sqlanywhere",
-                "sqlite",
-                "sqlserver",
-                "sqlsrv"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/2.13.9"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fdbal",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-05-02T20:28:55+00:00"
-        },
-        {
-            "name": "doctrine/deprecations",
-            "version": "v1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "reference": "0e2a4f1f8cdfc7a92ec3b01c9334898c806b30de",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1|^8.0"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^9",
-                "phpunit/phpunit": "^7.5|^8.5|^9.5",
-                "psr/log": "^1|^2|^3"
-            },
-            "suggest": {
-                "psr/log": "Allows logging deprecations via PSR-3 logger implementation"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Deprecations\\": "lib/Doctrine/Deprecations"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "A small layer on top of trigger_error(E_USER_DEPRECATED) or PSR-3 logging with options to disable all deprecations or selectively for packages.",
-            "homepage": "https://www.doctrine-project.org/",
-            "support": {
-                "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/v1.0.0"
-            },
-            "time": "2022-05-02T15:47:09+00:00"
-        },
-        {
-            "name": "doctrine/event-manager",
-            "version": "1.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/doctrine/event-manager.git",
-                "reference": "95aa4cb529f1e96576f3fda9f5705ada4056a520"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/event-manager/zipball/95aa4cb529f1e96576f3fda9f5705ada4056a520",
-                "reference": "95aa4cb529f1e96576f3fda9f5705ada4056a520",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/deprecations": "^0.5.3 || ^1",
-                "php": "^7.1 || ^8.0"
-            },
-            "conflict": {
-                "doctrine/common": "<2.9"
-            },
-            "require-dev": {
-                "doctrine/coding-standard": "^9 || ^10",
-                "phpstan/phpstan": "~1.4.10 || ^1.8.8",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
-                "vimeo/psalm": "^4.24"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Doctrine\\Common\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Guilherme Blanco",
-                    "email": "guilhermeblanco@gmail.com"
-                },
-                {
-                    "name": "Roman Borschel",
-                    "email": "roman@code-factory.org"
-                },
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de"
-                },
-                {
-                    "name": "Jonathan Wage",
-                    "email": "jonwage@gmail.com"
-                },
-                {
-                    "name": "Johannes Schmitt",
-                    "email": "schmittjoh@gmail.com"
-                },
-                {
-                    "name": "Marco Pivetta",
-                    "email": "ocramius@gmail.com"
-                }
-            ],
-            "description": "The Doctrine Event Manager is a simple PHP event system that was built to be used with the various Doctrine projects.",
-            "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
-            "keywords": [
-                "event",
-                "event dispatcher",
-                "event manager",
-                "event system",
-                "events"
-            ],
-            "support": {
-                "issues": "https://github.com/doctrine/event-manager/issues",
-                "source": "https://github.com/doctrine/event-manager/tree/1.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.doctrine-project.org/sponsorship.html",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://www.patreon.com/phpdoctrine",
-                    "type": "patreon"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Fevent-manager",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2022-10-12T20:51:15+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -1505,6 +834,62 @@
             "time": "2020-10-16T08:27:54+00:00"
         },
         {
+            "name": "fig/http-message-util",
+            "version": "1.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message-util.git",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message-util/zipball/9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "reference": "9d94dc0154230ac39e5bf89398b324a86f63f765",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.3 || ^7.0 || ^8.0"
+            },
+            "suggest": {
+                "psr/http-message": "The package containing the PSR-7 interfaces"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fig\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Utility classes and constants for use with PSR-7 (psr/http-message)",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/http-message-util/issues",
+                "source": "https://github.com/php-fig/http-message-util/tree/1.1.5"
+            },
+            "time": "2020-11-24T22:02:12+00:00"
+        },
+        {
             "name": "fruitcake/php-cors",
             "version": "v1.2.0",
             "source": {
@@ -1851,43 +1236,47 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.9.0",
+            "version": "2.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318"
+                "reference": "67c26b443f348a51926030c83481b85718457d3d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
-                "reference": "e98e3e6d4f86621a9b75f623996e6bbdeb4b9318",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
+                "reference": "67c26b443f348a51926030c83481b85718457d3d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0",
-                "ralouphie/getallheaders": "^2.0.5 || ^3.0.0"
+                "php": "^7.2.5 || ^8.0",
+                "psr/http-factory": "^1.0",
+                "psr/http-message": "^1.0",
+                "ralouphie/getallheaders": "^3.0"
             },
             "provide": {
+                "psr/http-factory-implementation": "1.0",
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
-                "ext-zlib": "*",
-                "phpunit/phpunit": "~4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.10"
+                "bamarni/composer-bin-plugin": "^1.8.1",
+                "http-interop/http-factory-tests": "^0.9",
+                "phpunit/phpunit": "^8.5.29 || ^9.5.23"
             },
             "suggest": {
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
             "extra": {
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": false
+                },
                 "branch-alias": {
-                    "dev-master": "1.9-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
-                "files": [
-                    "src/functions_include.php"
-                ],
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
                 }
@@ -1926,6 +1315,11 @@
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
                 }
             ],
             "description": "PSR-7 message implementation that also provides common utility methods",
@@ -1941,7 +1335,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/1.9.0"
+                "source": "https://github.com/guzzle/psr7/tree/2.4.3"
             },
             "funding": [
                 {
@@ -1957,7 +1351,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-06-20T21:43:03+00:00"
+            "time": "2022-10-26T14:07:24+00:00"
         },
         {
             "name": "intervention/image",
@@ -3872,6 +3266,61 @@
             "time": "2020-06-29T06:28:15+00:00"
         },
         {
+            "name": "psr/http-factory",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-factory.git",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-factory/zipball/12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "reference": "12ac7fcd07e5b077433f5f2bee95b3a771bf61be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "psr/http-message": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/master"
+            },
+            "time": "2019-04-30T12:38:16+00:00"
+        },
+        {
             "name": "psr/http-message",
             "version": "1.0.1",
             "source": {
@@ -4507,85 +3956,6 @@
             "time": "2022-11-30T15:59:55+00:00"
         },
         {
-            "name": "react/child-process",
-            "version": "v0.6.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/reactphp/child-process.git",
-                "reference": "e71eb1aa55f057c7a4a0d08d06b0b0a484bead43"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/child-process/zipball/e71eb1aa55f057c7a4a0d08d06b0b0a484bead43",
-                "reference": "e71eb1aa55f057c7a4a0d08d06b0b0a484bead43",
-                "shasum": ""
-            },
-            "require": {
-                "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
-                "php": ">=5.3.0",
-                "react/event-loop": "^1.2",
-                "react/stream": "^1.2"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35",
-                "react/socket": "^1.8",
-                "sebastian/environment": "^5.0 || ^3.0 || ^2.0 || ^1.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "React\\ChildProcess\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Christian Lück",
-                    "email": "christian@clue.engineering",
-                    "homepage": "https://clue.engineering/"
-                },
-                {
-                    "name": "Cees-Jan Kiewiet",
-                    "email": "reactphp@ceesjankiewiet.nl",
-                    "homepage": "https://wyrihaximus.net/"
-                },
-                {
-                    "name": "Jan Sorgalla",
-                    "email": "jsorgalla@gmail.com",
-                    "homepage": "https://sorgalla.com/"
-                },
-                {
-                    "name": "Chris Boden",
-                    "email": "cboden@gmail.com",
-                    "homepage": "https://cboden.dev/"
-                }
-            ],
-            "description": "Event-driven library for executing child processes with ReactPHP.",
-            "keywords": [
-                "event-driven",
-                "process",
-                "reactphp"
-            ],
-            "support": {
-                "issues": "https://github.com/reactphp/child-process/issues",
-                "source": "https://github.com/reactphp/child-process/tree/v0.6.5"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/WyriHaximus",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/clue",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-09-16T13:41:56+00:00"
-        },
-        {
             "name": "react/dns",
             "version": "v1.10.0",
             "source": {
@@ -4744,54 +4114,100 @@
             "time": "2022-03-17T11:10:22+00:00"
         },
         {
-            "name": "react/mysql",
-            "version": "v0.5.7",
+            "name": "react/http",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/friends-of-reactphp/mysql.git",
-                "reference": "c36b92f1ede95f49036b6ba1805736f80fa4d4e0"
+                "url": "https://github.com/reactphp/http.git",
+                "reference": "aa7512ee17258c88466de30f9cb44ec5f9df3ff3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/friends-of-reactphp/mysql/zipball/c36b92f1ede95f49036b6ba1805736f80fa4d4e0",
-                "reference": "c36b92f1ede95f49036b6ba1805736f80fa4d4e0",
+                "url": "https://api.github.com/repos/reactphp/http/zipball/aa7512ee17258c88466de30f9cb44ec5f9df3ff3",
+                "reference": "aa7512ee17258c88466de30f9cb44ec5f9df3ff3",
                 "shasum": ""
             },
             "require": {
-                "evenement/evenement": "^3.0 || ^2.1 || ^1.1",
-                "php": ">=5.4.0",
+                "evenement/evenement": "^3.0 || ^2.0 || ^1.0",
+                "fig/http-message-util": "^1.1",
+                "php": ">=5.3.0",
+                "psr/http-message": "^1.0",
                 "react/event-loop": "^1.2",
-                "react/promise": "^3 || ^2.7",
+                "react/promise": "^3 || ^2.3 || ^1.2.1",
                 "react/promise-stream": "^1.4",
-                "react/promise-timer": "^1.9",
-                "react/socket": "^1.12"
+                "react/socket": "^1.12",
+                "react/stream": "^1.2",
+                "ringcentral/psr7": "^1.2"
             },
             "require-dev": {
-                "clue/block-react": "^1.5",
-                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35"
+                "clue/http-proxy-react": "^1.8",
+                "clue/reactphp-ssh-proxy": "^1.4",
+                "clue/socks-react": "^1.4",
+                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.35",
+                "react/async": "^4 || ^3 || ^2",
+                "react/promise-timer": "^1.9"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "React\\MySQL\\": "src"
+                    "React\\Http\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Async MySQL database client for ReactPHP.",
+            "authors": [
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering",
+                    "homepage": "https://clue.engineering/"
+                },
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "reactphp@ceesjankiewiet.nl",
+                    "homepage": "https://wyrihaximus.net/"
+                },
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com",
+                    "homepage": "https://sorgalla.com/"
+                },
+                {
+                    "name": "Chris Boden",
+                    "email": "cboden@gmail.com",
+                    "homepage": "https://cboden.dev/"
+                }
+            ],
+            "description": "Event-driven, streaming HTTP client and server implementation for ReactPHP",
             "keywords": [
                 "async",
-                "database",
-                "mysql",
-                "reactphp"
+                "client",
+                "event-driven",
+                "http",
+                "http client",
+                "http server",
+                "https",
+                "psr-7",
+                "reactphp",
+                "server",
+                "streaming"
             ],
             "support": {
-                "issues": "https://github.com/friends-of-reactphp/mysql/issues",
-                "source": "https://github.com/friends-of-reactphp/mysql/tree/v0.5.7"
+                "issues": "https://github.com/reactphp/http/issues",
+                "source": "https://github.com/reactphp/http/tree/v1.8.0"
             },
-            "time": "2022-09-15T13:40:17+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-09-29T12:55:52+00:00"
         },
         {
             "name": "react/promise",
@@ -5200,6 +4616,67 @@
                 }
             ],
             "time": "2021-07-11T12:37:55+00:00"
+        },
+        {
+            "name": "ringcentral/psr7",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ringcentral/psr7.git",
+                "reference": "360faaec4b563958b673fb52bbe94e37f14bc686"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ringcentral/psr7/zipball/360faaec4b563958b673fb52bbe94e37f14bc686",
+                "reference": "360faaec4b563958b673fb52bbe94e37f14bc686",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "RingCentral\\Psr7\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "PSR-7 message implementation",
+            "keywords": [
+                "http",
+                "message",
+                "stream",
+                "uri"
+            ],
+            "support": {
+                "source": "https://github.com/ringcentral/psr7/tree/master"
+            },
+            "time": "2018-05-29T20:21:04+00:00"
         },
         {
             "name": "spatie/image",
@@ -10837,14 +10314,13 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "beyondcode/laravel-websockets": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.0.2",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "ext-sqlite3": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
