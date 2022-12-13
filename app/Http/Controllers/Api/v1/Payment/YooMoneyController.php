@@ -26,6 +26,7 @@ class YooMoneyController extends Controller
     public function websocket_send($m)
     {
         YooMoneyEvent::dispatch($m);
+        return response()->json($m);
     }
     public function index()
     {
