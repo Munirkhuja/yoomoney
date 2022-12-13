@@ -10,7 +10,6 @@
     "require": {
         "php": "^8.0.2",
         "ext-gd": "*",
-        "ext-sqlite3": "*",
         "beyondcode/laravel-websockets": "*",
         "darkaonline/l5-swagger": "^8.4",
         "guzzlehttp/guzzle": "^7.2",
